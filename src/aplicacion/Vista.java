@@ -1,8 +1,5 @@
 package aplicacion;
 
-
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,32 +16,10 @@ import javax.swing.JSeparator;
 
 public class Vista extends JFrame {
 
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 5491672040527458245L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Vista frame = new Vista();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Vista() {
 		setResizable(false);
 		setFont(new Font("ADAM.CG PRO", Font.PLAIN, 12));
@@ -72,7 +47,7 @@ public class Vista extends JFrame {
 		verticalBox.add(etqFechaActual);
 		contentPane.add(verticalBox);
 		
-		Panel fecha=new Panel();
+		FuncionesFechas fecha=new FuncionesFechas();
 		
 		
 		

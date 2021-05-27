@@ -22,6 +22,10 @@ public class Panel extends JPanel{
 
 	public Panel() {
 		
+		
+		FuncionesFechas fechas = new FuncionesFechas();
+		
+		
 		this.setBackground(Color.BLACK);
 		
 		
@@ -38,7 +42,7 @@ public class Panel extends JPanel{
 		etqFechaActual.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
-		String fechaHoy=getObtieneFecha();
+		String fechaHoy=fechas.getObtieneFecha();
 		
 		JLabel FechaActual=new JLabel(fechaHoy);
 		FechaActual.setFont(font);
@@ -56,7 +60,7 @@ public class Panel extends JPanel{
 		etqFechaVencimiento.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
-		String fechaVencimiento=getObtieneFechaVencimiento();
+		String fechaVencimiento=fechas.getObtieneFechaVencimiento();
 		
 		JLabel FechaVencimiento=new JLabel(fechaVencimiento);
 		FechaVencimiento.setFont(font);
@@ -74,7 +78,7 @@ public class Panel extends JPanel{
 		etqTragosVencimiento.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
-		String tragosVencimiento=getObtieneTragosVencimiento();
+		String tragosVencimiento=fechas.getObtieneTragosVencimiento();
 		
 		JLabel TragosVencimiento=new JLabel(tragosVencimiento);
 		TragosVencimiento.setFont(font);
@@ -92,7 +96,7 @@ public class Panel extends JPanel{
 		etqBotellasVencimiento.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
-		String botellasVencimiento=getObtieneBotellasVencimiento();
+		String botellasVencimiento=fechas.getObtieneBotellasVencimiento();
 		
 		JLabel BotellasVencimiento=new JLabel(botellasVencimiento);
 		BotellasVencimiento.setFont(font);
@@ -109,7 +113,7 @@ public class Panel extends JPanel{
 		etqLote.setForeground(Color.WHITE);
 		etqLote.setAlignmentX(CENTER_ALIGNMENT);	
 		
-		String numLote=getObtieneLote();
+		String numLote=fechas.getObtieneLote();
 		
 		JLabel Lote=new JLabel(numLote);
 		Lote.setFont(font);
@@ -145,9 +149,6 @@ public class Panel extends JPanel{
 		boxGeneral.add(Lote);
 		boxGeneral.add(Box.createVerticalStrut(15));
 		
-	
-		
-		
 		//****** AGREGRAMOS EL BOX GENERAL AL PANEL********
 			
 		add(boxGeneral);
@@ -156,83 +157,7 @@ public class Panel extends JPanel{
 		
 	}
 	
-	
-	
-	
-	public String getObtieneFecha() {
-		
 
-		LocalDate fechaActual = LocalDate.now();
-		
-		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
-		String text = fechaActual.format(formatoFecha);
-               
-		return text;
-	
-		
-	}
-	
-	public String getObtieneFechaVencimiento() {
-		
-		
-		LocalDate localDateOf= LocalDate.now();
-		
-		LocalDate fechaVencimiento=localDateOf.plusDays(911);
-		
-		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
-		String text=fechaVencimiento.format(formatoFecha);
-		
-	    return text;
-	        	
-		
-	}
-	
-	public String getObtieneTragosVencimiento() {
-		
-		LocalDate localDateOf= LocalDate.now();
-		
-		LocalDate fechaVencimiento=localDateOf.plusDays(365*2);
-		
-		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
-		String text=fechaVencimiento.format(formatoFecha);
-		
-	    return text;		
-		
-	}
-	
-	public String getObtieneBotellasVencimiento() {
-		
-		LocalDate localDateOf= LocalDate.now();
-		
-		LocalDate fechaVencimiento=localDateOf.plusDays(365);
-		
-		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
-		String text=fechaVencimiento.format(formatoFecha);
-		
-	    return text;		
-	
-		
-	}
-	
-	public String getObtieneLote() {
-		
-		LocalDate  FechaActual= LocalDate.now();
-		
-		int Lote=FechaActual.getDayOfYear();
-		
-		Formatter fmt = new Formatter();
-		
-		String text=fmt.format("%03d", Lote).toString();
-		fmt.close();
-		
-		return text;
-		
-		
-	}
 	
 }
 
